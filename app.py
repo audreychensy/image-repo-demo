@@ -30,7 +30,7 @@ def mvfile():
     return "success"
 
 @app.route('/api/searchImg', methods=['POST'])
-def search():
+def search_by_img():
     RESULTS_ARRAY = []
     try:
         # initialize the image descriptor
@@ -73,7 +73,16 @@ def search():
         # return error
         return jsonify({"sorry": "Sorry, no results! Please try again."}), 500
 
-    
+
+@app.route('/api/searchMd', methods=['POST'])
+def search_by_metadata():
+    ## call db_util functions that perform search in db
+    return jsonify({"oops": "coming up soon!"})
+
+@app.route('/api/searchText', methods=['POST'])
+def search_by_text():
+    ## computer vision algo for text recognition
+    return jsonify({"oops": "coming up soon!"})
 
 if __name__ == '__main__':
     app.run()
